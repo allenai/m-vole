@@ -20,11 +20,10 @@ If you find this project useful in your research, please consider citing:
    }
 ```
 
-### Contents #TODO update after everything is fine
+### Contents
 <div class="toc">
 <ul>
 <li><a href="#-installation">💻 Installation</a></li>
-<li><a href="#-armpointnav-task-description">📝 ArmPointNav Task Description</a></li>
 <li><a href="#-dataset">📊 Dataset</a></li>
 <li><a href="#-training-an-agent">🏋 Training an Agent</a></li>
 <li><a href="#-evaluating-a-pre-trained-agent">💪 Evaluating a Pre-Trained Agent</a></li>
@@ -75,13 +74,6 @@ After installing the requirements, you should start the xserver by running this 
 sudo ai2thor-xorg start
 ```
 
-## 📝 ObjDis Task Description #TODO
-
-[//]: # (<img src="media/armpointnav_task.png" alt="" width="100%">)
-
-[//]: # ()
-[//]: # (ArmPointNav is the goal of addressing the problem of visual object manipulation, where the task is to move an object between two locations in a scene. Operating in visually rich and complex environments, generalizing to unseen environments and objects, avoiding collisions with objects and structures in the scene, and visual planning to reach the destination are among the major challenges of this task. The example illustrates a sequence of actions taken a by a virtual robot within the ManipulaTHOR environment for picking up a vase from the shelf and stack it on a plate on the countertop.)
-   
 ## 📊 Dataset
 
 To study the task of ObjDis, we use the ArmPointNav Dataset (APND) presented in <a href=https://github.com/allenai/manipulathor>ManipulaTHOR</a>. This consists of 30 kitchen scenes in AI2-THOR that include more than 150 object categories (69 interactable object categories) with a variety of shapes, sizes and textures. We use 12 pickupable categories as our target objects. We use 20 scenes in the training set and the remaining is evenly split into Val and Test. We train with 6 object categories and use the remaining to test our model in a Novel-Obj setting. To train or evaluate the models download the dataset from [here](https://drive.google.com/file/d/1oPCgOdTD6QbOGHwAGNVr6oP9ToS7zbO7/view?usp=sharing) and extract to `datasets/apnd-dataset`.
@@ -114,13 +106,12 @@ allenact manipulathor_baselines/bring_object_baselines/experiments/ithor/<EXPERI
 
 Where `<EXPERIMENT-NAME>` can be one of the options below:
 
-#TODO rewrite the following
 ```
-armpointnav_no_vision -- No Vision Baseline
-armpointnav_disjoint_depth -- Disjoint Model Ablation
-armpointnav_rgb -- Our RGB Experiment
-armpointnav_rgbdepth -- Our RGBD Experiment
-armpointnav_depth -- Our Depth Experiment
+armpointnav_baseline -- No Vision Baseline
+armpointnav_baseline -- ArmPointNav Baseline
+mdm_with_predicted_mask -- MDM Baseline w/ Predicted Mask
+loc_mdm_with_predicted_mask -- Loc-MDM Baseline w/ Predicted Mask
+mvole_with_predicted_mask -- m-VOLE (Ours) w/ Predicted Mask
 ``` 
 
 
@@ -129,7 +120,7 @@ armpointnav_depth -- Our Depth Experiment
 To evaluate a pre-trained model, (for example to reproduce the numbers in the paper), you can add
 `--eval -c <WEIGHT-ADDRESS>` to the end of the command you ran for training. 
 
-In order to reproduce the numbers in the paper, you need to download the pretrained models from #TODO upload and put it
+In order to reproduce the numbers in the paper, you need to download the pretrained models from
 [here](https://drive.google.com/file/d/1wZi_IL5d7elXLkAb4jOixfY0M6-ZfkGM/view?usp=sharing) and extract them 
 to pretrained_models. The full list of experiments and their corresponding trained weights can be found
 [here](EvaluateModels.md).

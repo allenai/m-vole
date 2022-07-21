@@ -1,4 +1,3 @@
-#TODO do this file
 # Evaluating the Pre-trained Models
 ## Download the Weights
 You can download the weights from [here](https://drive.google.com/file/d/15JgEh8xoUy26azUOIPDVIrUfi-X3aufc/view?usp=sharing).
